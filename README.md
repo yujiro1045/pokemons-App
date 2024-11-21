@@ -1,18 +1,23 @@
-# React + Vite Project
+# Proyecto Pokémon
 
-Este proyecto es una configuración mínima para empezar a trabajar con **React** y **Vite**, utilizando Hot Module Replacement (HMR) para una experiencia de desarrollo más rápida. Además, se incluye una configuración básica de **ESLint** para mantener el código limpio y consistente.
+Este proyecto es una aplicación web creada con **React** y **Vite**, donde los usuarios pueden explorar información sobre los Pokémon. Los usuarios pueden ver detalles como las habilidades, tipos, y una imagen del Pokémon. La aplicación utiliza la **Pokémon API** para obtener datos en tiempo real.
 
 ## Descripción del Proyecto
 
-Este proyecto es una aplicación **React** que utiliza **Vite** como su herramienta de construcción y desarrollo. Con Vite, el tiempo de inicio del proyecto es mucho más rápido, y la recarga en vivo (HMR) permite que los cambios en el código se reflejen instantáneamente en el navegador, mejorando la productividad del desarrollo.
+La aplicación permite a los usuarios buscar y explorar información sobre Pokémon. Al seleccionar un Pokémon, se muestra un modal con detalles como:
+
+- **Imagen** del Pokémon.
+- **Habilidades** disponibles para ese Pokémon.
+- **Tipos** de Pokémon, con un sistema de colores para diferenciar cada tipo (por ejemplo, Fuego, Agua, Planta, etc.).
+  
+Además, se implementa una funcionalidad de **modal** para visualizar los detalles del Pokémon sin necesidad de recargar la página.
 
 ### Características
 
-- Configuración básica de **React** y **Vite** para empezar rápidamente.
-- Dos opciones de complementos oficiales de Vite para manejar la recarga rápida:
-  - `@vitejs/plugin-react` usa **Babel** para la recarga rápida.
-  - `@vitejs/plugin-react-swc` usa **SWC** para la recarga rápida, una alternativa más rápida.
-- **ESLint** configurado para ayudarte a mantener un código limpio y sin errores comunes.
+- **Interfaz de usuario interactiva**: Los usuarios pueden buscar y explorar fácilmente los Pokémon mediante una interfaz limpia y moderna.
+- **Detalles completos**: Al seleccionar un Pokémon, se muestra un modal con su imagen, habilidades y tipos.
+- **Colores personalizables**: Los tipos de Pokémon tienen colores personalizados que hacen que la interfaz sea más intuitiva.
+- **Responsive**: La aplicación es completamente adaptable a diferentes tamaños de pantalla, desde dispositivos móviles hasta escritorios.
 
 ## Instalación
 
