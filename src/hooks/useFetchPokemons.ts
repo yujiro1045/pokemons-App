@@ -6,45 +6,67 @@ import {
   PokemonResult,
 } from "../interfaces/PokemonResponse";
 
-export default function useFetchPokemons() {
+export default function useFetchPokemons(
+  url = `${API_URL}?limit=650&offset=0`
+) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
-  const [nextUrl, setNextUrl] = useState("");
+  const [allPokemons, setAllPokemons] = useState<Pokemon[]>([]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const getPokemons = async (url = API_URL) => {
-    const response = await fetch(url);
-    const listPokemons = await response.json();
-    const { next, results } = listPokemons;
+  const fetchAllPokemons = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(url);
+      const listPokemons = await response.json();
+      const { results } = listPokemons;
 
-    const newPokemons = await Promise.all(
-      results.map(async (pokemon: PokemonResult) => {
-        const response = await fetch(pokemon.url);
-        const poke: PokemonDetail = await response.json();
+      // Usamos Promise.all para hacer las solicitudes en paralelo
+      const fullPokemonList = await Promise.all(
+        results.map((pokemon: PokemonResult) =>
+          fetch(pokemon.url).then(async (response) => {
+            const poke: PokemonDetail = await response.json();
 
-        return {
-          id: poke.id,
-          name: poke.name,
-          img: poke.sprites.other.dream_world.front_default,
-        };
-      })
+            return {
+              id: poke.id,
+              name: poke.name,
+              img:
+                poke.sprites.other.dream_world.front_default ||
+                poke.sprites.front_default,
+              abilities: poke.abilities,
+              types: poke.types,
+            };
+          })
+        )
+      );
+
+      setAllPokemons(fullPokemonList);
+      setPokemons(fullPokemonList.slice(0, 20)); // Solo los primeros 20 si lo deseas
+    } catch (error) {
+      console.error("Error fetching Pokémon:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filterAndPaginate = (query: string, page: number) => {
+    const filtered = allPokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(query.toLowerCase())
     );
-
-    return { next, newPokemons };
-  };
-
-  const fetchPokemons = async () => {
-    const { next, newPokemons } = await getPokemons();
-    setPokemons(newPokemons);
-    setNextUrl(next);
-  };
-
-  const morePokemons = async () => {
-    const { next, newPokemons } = await getPokemons(nextUrl);
-    setPokemons((prev) => [...prev, ...newPokemons]);
-    setNextUrl(next);
+    const startIndex = (page - 1) * 20;
+    setPokemons(filtered.slice(startIndex, startIndex + 20));
   };
 
   useEffect(() => {
-    fetchPokemons();
+    fetchAllPokemons();
   }, []);
-  return { pokemons, morePokemons };
+
+  return {
+    pokemons,
+    loading,
+    currentPage,
+    setCurrentPage,
+    filterAndPaginate,
+    allPokemons,
+  };
 }

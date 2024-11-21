@@ -129,13 +129,13 @@ export const SunIcon: React.FC<IconsProps> = ({
 }) => {
   return (
     <svg
-      class="feather feather-sun"
+      className="feather feather-sun"
       fill="none"
       height={height}
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       viewBox="0 0 24 24"
       width={width}
       xmlns="http://www.w3.org/2000/svg"
@@ -159,13 +159,13 @@ export const MoonIcon: React.FC<IconsProps> = ({
 }) => {
   return (
     <svg
-      class="feather feather-moon"
+      className="feather feather-moon"
       fill="none"
       height={height}
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       viewBox="0 0 24 24"
       width={width}
       xmlns="http://www.w3.org/2000/svg"
@@ -181,13 +181,13 @@ export const SearchIcon: React.FC<IconsProps> = ({
 }) => {
   return (
     <svg
-      class="feather feather-search"
+      className="feather feather-search"
       fill="none"
       height={height}
       stroke="white"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
       viewBox="0 0 24 24"
       width={width}
       xmlns="http://www.w3.org/2000/svg"

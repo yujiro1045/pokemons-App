@@ -1,12 +1,11 @@
+import { API_URL } from "../constant";
 import { PokemonApiResponse } from "../interfaces/PokemonResponse";
 
 export const getPokemons = async (
   limit: number = 20,
   offset: number = 0
 ): Promise<PokemonApiResponse> => {
-  const response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`
-  );
+  const response = await fetch(`${API_URL}?limit=${limit}&offset=${offset}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch Pokémon");

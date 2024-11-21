@@ -1,0 +1,27 @@
+.modal {
+  background-color: #40e0d0; /* Azul turquesa */
+  color: #ffffff; /* Texto blanco */
+}
+
+.modal-close {
+  color: #ffffff; /* Blanco para contrastar con el fondo */
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: #ff6347; /* Rojo tomate al pasar el cursor */
+}
+
+.modal .abilities,
+.modal .types {
+  background-color: #48d1cc; /* Azul turquesa más claro */
+  color: #ffffff;
+}
+
+.modal .abilities li {
+  background-color: #fdae42; /* Naranja brillante */
+}
+
+.modal .types li {
+  background-color: #b8b8b8; /* Color por defecto */
+}
