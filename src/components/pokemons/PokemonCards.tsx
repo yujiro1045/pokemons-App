@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { getPokemonImage } from "../../helpers/get-pokemon-image.helper";
 
 interface Props {

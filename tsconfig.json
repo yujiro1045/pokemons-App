@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "outDir": "./dist" // Carpeta donde se guardarán los archivos JS generados
+    "outDir": "./dist"
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -21,7 +21,6 @@ export default function useFetchPokemons(
       const listPokemons = await response.json();
       const { results } = listPokemons;
 
-      // Usamos Promise.all para hacer las solicitudes en paralelo
       const fullPokemonList = await Promise.all(
         results.map((pokemon: PokemonResult) =>
           fetch(pokemon.url).then(async (response) => {
@@ -41,7 +40,7 @@ export default function useFetchPokemons(
       );
 
       setAllPokemons(fullPokemonList);
-      setPokemons(fullPokemonList.slice(0, 20)); // Solo los primeros 20 si lo deseas
+      setPokemons(fullPokemonList.slice(0, 20));
     } catch (error) {
       console.error("Error fetching Pokémon:", error);
     } finally {
@@ -62,11 +61,11 @@ export default function useFetchPokemons(
   }, []);
 
   return {
-    pokemons,
-    loading,
-    currentPage,
-    setCurrentPage,
-    filterAndPaginate,
     allPokemons,
+    currentPage,
+    filterAndPaginate,
+    loading,
+    pokemons,
+    setCurrentPage,
   };
 }

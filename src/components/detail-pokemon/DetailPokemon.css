@@ -1,27 +1,27 @@
 .modal {
-  background-color: #40e0d0; /* Azul turquesa */
-  color: #ffffff; /* Texto blanco */
+  background-color: #40e0d0;
+  color: #ffffff;
 }
 
 .modal-close {
-  color: #ffffff; /* Blanco para contrastar con el fondo */
+  color: #ffffff;
   transition: color 0.3s;
 }
 
 .modal-close:hover {
-  color: #ff6347; /* Rojo tomate al pasar el cursor */
+  color: #ff6347;
 }
 
 .modal .abilities,
 .modal .types {
-  background-color: #48d1cc; /* Azul turquesa más claro */
+  background-color: #48d1cc;
   color: #ffffff;
 }
 
 .modal .abilities li {
-  background-color: #fdae42; /* Naranja brillante */
+  background-color: #fdae42;
 }
 
 .modal .types li {
-  background-color: #b8b8b8; /* Color por defecto */
+  background-color: #b8b8b8;
 }

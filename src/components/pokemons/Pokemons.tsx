@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useFetchPokemons from "../../hooks/useFetchPokemons";
 import DetailPokemon from "../detail-pokemon/DetailPokemon";
 import Pokemon from "./PokemonCards";
+import React, { useEffect, useState } from "react";
 import Searching from "../common/Searching";
+import useFetchPokemons from "../../hooks/useFetchPokemons";
 
 const Pokemons: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -11,12 +11,12 @@ const Pokemons: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
   const {
-    pokemons,
+    allPokemons,
     currentPage,
-    setCurrentPage,
     filterAndPaginate,
     loading,
-    allPokemons,
+    pokemons,
+    setCurrentPage,
   } = useFetchPokemons();
 
   const ITEMS_PER_PAGE = 20;
