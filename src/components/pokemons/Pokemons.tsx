@@ -22,7 +22,7 @@ const Pokemons: React.FC = () => {
   const ITEMS_PER_PAGE = 20;
   const TOTAL_PAGES = Math.ceil(allPokemons.length / ITEMS_PER_PAGE);
 
-  const openModal = (pokemon) => {
+  const openModal = (pokemon: any) => {
     setSelectedPokemon(pokemon);
     setIsModalOpen(true);
   };
